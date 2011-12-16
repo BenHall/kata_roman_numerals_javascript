@@ -12,6 +12,8 @@ RomanNumerals.prototype.convert = function(v) {
     result += "I";
   }
 
+  result = result.replace("XXXXX", "L");
+  result = result.replace("XXXX", "XL");
   result = result.replace("IIIII", "V");
   result = result.replace("VIIII", "IX");
   result = result.replace("IIIIV", "XI");

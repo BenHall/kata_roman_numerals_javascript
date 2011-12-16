@@ -62,3 +62,31 @@ test("21 is converted to XVI", function() {
 
   equals(result, "XXI");
 });
+
+test("50 is converted to L", function() {
+  var r = new RomanNumerals();
+  result = r.convert(50);
+
+  equals(result, "L");
+});
+
+test("70 is converted to LXX", function() {
+  var r = new RomanNumerals();
+  result = r.convert(70);
+
+  equals(result, "LXX");
+});
+
+test("40 is converted to XL", function() {
+  var r = new RomanNumerals();
+  result = r.convert(40);
+
+  equals(result, "XL");
+});
+
+test("80 is converted to LXXX", function() {
+  var r = new RomanNumerals();
+  result = r.convert(80);
+
+  equals(result, "LXXX");
+});
