@@ -12,12 +12,18 @@ RomanNumerals.prototype.convert = function(v) {
     result += "I";
   }
 
-  result = result.replace("XXXXX", "L");
-  result = result.replace("XXXX", "XL");
-  result = result.replace("IIIII", "V");
-  result = result.replace("VIIII", "IX");
-  result = result.replace("IIIIV", "XI");
-  result = result.replace("IIII", "IV");
+  result = result.replace(/XXXXX/g, "L");
+  result = result.replace(/XXXX/g, "XL");
+  result = result.replace(/LL/g, "C");
+  result = result.replace(/LXL/g, "XC");
+  result = result.replace(/CCCCC/g, "D");
+  result = result.replace(/CCCC/g, "CD");
+  result = result.replace(/DCD/g, "CM");
+  result = result.replace(/DD/g, "M");
+  result = result.replace(/IIIII/g, "V");
+  result = result.replace(/VIIII/g, "IX");
+  result = result.replace(/IIIIV/g, "XI");
+  result = result.replace(/IIII/g, "IV");
 
   return result;
   

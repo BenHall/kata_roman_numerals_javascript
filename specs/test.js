@@ -90,3 +90,66 @@ test("80 is converted to LXXX", function() {
 
   equals(result, "LXXX");
 });
+
+test("90 is converted to XC", function() {
+  var r = new RomanNumerals();
+  result = r.convert(90);
+
+  equals(result, "XC");
+});
+
+test("100 is converted to C", function() {
+  var r = new RomanNumerals();
+  result = r.convert(100);
+
+  equals(result, "C");
+});
+
+test("369 is converted to CCCLXIX", function() {
+  var r = new RomanNumerals();
+  result = r.convert(369);
+
+  equals(result, "CCCLXIX");
+});
+
+test("400 is converted to CD", function() {
+  var r = new RomanNumerals();
+  result = r.convert(400);
+
+  equals(result, "CD");
+});
+
+test("448 is converted to CDXLVIII", function() {
+  var r = new RomanNumerals();
+  result = r.convert(448);
+
+  equals(result, "CDXLVIII");
+});
+
+test("500 is converted to D", function() {
+  var r = new RomanNumerals();
+  result = r.convert(500);
+
+  equals(result, "D");
+});
+
+test("1000 is converted to M", function() {
+  var r = new RomanNumerals();
+  result = r.convert(1000);
+
+  equals(result, "M");
+});
+
+test("998 is converted to CMXCVIII", function() {
+  var r = new RomanNumerals();
+  result = r.convert(998);
+
+  equals(result, "CMXCVIII");
+});
+
+test("1998 is converted to MCMXCVIII", function() {
+  var r = new RomanNumerals();
+  result = r.convert(1998);
+
+  equals(result, "MCMXCVIII");
+});
