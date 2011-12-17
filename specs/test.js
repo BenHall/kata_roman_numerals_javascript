@@ -8,7 +8,7 @@ test("converting to roman numerals", function() {
   for(var i in expected) {
     var expectedResult = expected[i];
     var r = new RomanNumerals();
-    result = r.convert(i);
+    result = r.to_roman(i);
 
     equals(result, expectedResult, i.toString() + " is converted to " + expectedResult);
   }

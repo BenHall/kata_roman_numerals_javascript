@@ -1,6 +1,6 @@
 var RomanNumerals = function() {};
 
-RomanNumerals.prototype.convert = function(v) {
+RomanNumerals.prototype.to_roman = function(v) {
   var result = "";
   var tens = v / 10;
   for(var i = 0; i < Math.floor(tens); i++) {
