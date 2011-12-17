@@ -1,30 +1,48 @@
 var RomanNumerals = function() {};
 
 RomanNumerals.prototype.to_roman = function(v) {
-  var result = "";
-  var tens = v / 10;
-  for(var i = 0; i < Math.floor(tens); i++) {
-    result += "X";
+  function createStrForTens(val) { 
+    var result = "";
+    var tens = v / 10;
+    for(var i = 0; i < Math.floor(tens); i++) {
+      result += "X";
+    }
+    return result;
+  }
+  
+  function appendStrWithRemainer(result, val) {
+    var remainer = v % 10;
+    for(var i = 0; i < remainer; i++) {
+      result += "I";
+    }
+
+    return result; 
   }
 
-  var remainer = v % 10;
-  for(var i = 0; i < remainer; i++) {
-    result += "I";
+  function convertToLargeRepresentation(result) {
+    result = result.replace(/XXXXX/g, "L")
+                    .replace(/XXXX/g, "XL")
+                    .replace(/LL/g, "C")
+                    .replace(/LXL/g, "XC")
+                    .replace(/CCCCC/g, "D")
+                    .replace(/CCCC/g, "CD")
+                    .replace(/DCD/g, "CM")
+                    .replace(/DD/g, "M");
+
+    return convertToSmallerRepresentations(result);
   }
 
-  result = result.replace(/XXXXX/g, "L");
-  result = result.replace(/XXXX/g, "XL");
-  result = result.replace(/LL/g, "C");
-  result = result.replace(/LXL/g, "XC");
-  result = result.replace(/CCCCC/g, "D");
-  result = result.replace(/CCCC/g, "CD");
-  result = result.replace(/DCD/g, "CM");
-  result = result.replace(/DD/g, "M");
-  result = result.replace(/IIIII/g, "V");
-  result = result.replace(/VIIII/g, "IX");
-  result = result.replace(/IIIIV/g, "XI");
-  result = result.replace(/IIII/g, "IV");
+  function convertToSmallerRepresentations(result) { 
+    result = result.replace(/IIIII/g, "V")
+                    .replace(/VIIII/g, "IX")
+                    .replace(/IIIIV/g, "XI")
+                    .replace(/IIII/g, "IV");
+    return result;
+  }
+
+  var result = createStrForTens(v);
+  result = appendStrWithRemainer(result, v);
+  result = convertToLargeRepresentation(result);
 
   return result;
-  
 }
